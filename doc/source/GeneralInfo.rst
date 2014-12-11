@@ -51,7 +51,7 @@ Implementation
 
 The implementation is based on a slightly modified version of the header
 sndfile.hh that is distributed with libsndfile. The only modification is
-the addition of a methode querying the seekable state of the open
+the addition of a method querying the seekable state of the open
 Sndfile.
 
 Copyright

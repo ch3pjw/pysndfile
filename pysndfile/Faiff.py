@@ -20,7 +20,7 @@
 #
 
 """
-The Faiff module is no longer very useful, it simply calls the sndio implementation. Ii is preserved for backwards compatibility.
+The Faiff module is no longer very useful, it simply calls the sndio implementation. It is preserved for backwards compatibility.
 """
 
 import sndio 

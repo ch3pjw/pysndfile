@@ -23,7 +23,7 @@ import numpy as np
 
 def get_info(name) :
     """
-    retrieve samplerate, encoding (str) and format informationfor sndfile name
+    retrieve samplerate, encoding (str) and format information for sndfile name
     """
     sf  = PySndfile(name)
     return sf.samplerate(), sf.encoding_str(), sf.major_format_str()
