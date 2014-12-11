@@ -33,7 +33,7 @@ def write(name, vec, rate=44100, format="aiff", enc='pcm16') :
     Write datavector to sndfile using samplerate, format and encoding as specified
     valid format strings are all the keys in the dict pysndfile.fileformat_name_to_id
     valid encodings are those that are supported from the list of keys in pysndfile.encoding_name_to_id
-    by the selected format and 
+    by the selected format and
     """
     nchans = len(vec.shape)
     if nchans != 1 :
@@ -41,7 +41,7 @@ def write(name, vec, rate=44100, format="aiff", enc='pcm16') :
     sf  = PySndfile(name, "w",
                     format=construct_format(format, enc),
                     channels = nchans, samplerate = rate)
-    
+
     nf = sf.write_frames(vec)
 
     if nf != vec.shape[0]:
@@ -54,12 +54,13 @@ enc_norm_map = {
     "pcm24": np.float64(2**23),
     "pcm32": np.float64(2**31),
     }
-    
+
 def read(name, end=None, start=0, dtype=np.float64) :
     """read samples from arbitrary sound files.
     return data, samplerate and encoding string
 
-    returns subset of samples as specified by start and end arguments (Def all samples)
+    returns subset of samples as specified by start and end arguments (Def all
+    samples)
     normalizes samples to [-1,1] if the datatype is a floating point type
     """
     sf  = PySndfile(name)
@@ -68,12 +69,12 @@ def read(name, end=None, start=0, dtype=np.float64) :
     nf = sf.seek(start, 0)
     if not nf == start:
         raise IOError("sndio.read::error:: while seeking at starting position")
-    
+
     if end == None:
         ff = sf.read_frames(dtype=dtype)
     else:
         ff = sf.read_frames(end-start, dtype=dtype)
-        
+
     # if norm and (enc not in ["float32" , "float64"]) :
     #     if enc in enc_norm_map :
     #         ff = ff / enc_norm_map[sf.encoding_str()]

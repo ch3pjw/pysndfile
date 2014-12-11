@@ -20,10 +20,11 @@
 #
 
 """
-The Faiff module is no longer very useful, it simply calls the sndio implementation. It is preserved for backwards compatibility.
+The Faiff module is no longer very useful, it simply calls the sndio
+implementation. It is preserved for backwards compatibility.
 """
 
-import sndio 
+import sndio
 import numpy as np
 
 def write(name, vec, rate=44100, enc='pcm16') :
@@ -37,7 +38,8 @@ def read(name, start=0, end=None, dtype=np.float64) :
     Read samples from aiff file (or any other fileformat support by pysndfile)
     return data, samplerate and encoding string
 
-    returns subset of samples as specified by start and end arguments (Def all samples)
+    returns subset of samples as specified by start and end arguments (Def all
+    samples)
     normalizes samples to [-1,1] if the datatype is a floating point type
     """
     return sndio.read(name, start, end, dtype)
